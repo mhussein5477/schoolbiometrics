@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Biometrics System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <a class="navbar-brand" href="#"><h5>School Biometrics System</h5></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active" style="margin-left: 2;">
+            <a class="nav-link" href="/dashboard"><i class="fa fa-address-card" aria-hidden="true"></i> Enroll <span class="sr-only">(current)</span></a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link disabled" href="/classes" style="color: white;"><i class="fa fa-briefcase" aria-hidden="true"></i> Classes</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" style="color: white;"><i class="fa fa-briefcase" aria-hidden="true"></i> Staff</a>
+          </li>
+          <li>
+            <a href="/livecapturingdata" style="margin-right: 0%;" > <button  class="btn btn-secondary my-2 my-sm-0"  > Go live </button></a>
+          </li>
+        </ul>
+ 
+         
+          <a href="#"  style="text-decoration: none; color: white; margin-left: 0%;"> Welcome ! {{ session.email }}</a>
+          
+          <a href="/logout" ><button style=" padding: 5px; margin-left: 3%;"  class="btn btn-info my-2 my-sm-0"   > Logout</button></a>
+           
+ 
+      </div>
+    </nav>
+
+   
+  
+
+
+      <section >
+     
+<div class="container" style="border: 1.5px solid rgb(172, 172, 172); margin-top: 1.5%; padding-left: 50px; padding-top: 10px; width: 40%; border-radius: 30px; margin-bottom: 10%;">
+  <center><h5 style="font-weight: 700;margin-top: 2%;">Student Enrollment Details</h5></center> 
+  <center><i class="fa fa-address-card" aria-hidden="true" style="color: green; font-size: 380%; margin-top: 1%; "></i></center>
+  <img id="output"/ style="width: 20%;"><br>
+    <h6 style="margin-top: 3%;">Select a file to upload</h6>
+   
+    <form method="post" action="/uploading" enctype="multipart/form-data">
+      
+        <dl>
+            <p>
+                <input type="file" name="file" class="form-control" autocomplete="off"  accept="image/*" onchange="loadFile(event)" class="form-control" required style="width: 90%; ">
+            </p>
+        </dl>
+        
+        <script>
+          var loadFile = function(event) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+              URL.revokeObjectURL(output.src) // free memory
+            }
+          };
+        </script>
+        <label for="uname"><b>Student Name : </b></label>
+              <input type="text"  class="form-control" style="width: 90%;"  name="studentname" required> 
+
+              <label for="uname" style="margin-top: 2%;"><b>FingerPrint Number : </b></label>
+              <input type="number"  class="form-control" name="admissionnumber" style="width: 90%;" required>
+
+              
+              <label for="uname" style="margin-top: 2%;"><b>Admission Number : </b></label>
+              <input type="number"  class="form-control" name="admissionnumber1" style="width: 90%;" required>
+        
+              <label for="uname" style="margin-top: 2%;"><b>Class : </b></label>
+              <select name="classgroup"  class="form-control" style="width: 90%;">
+                <option value="form1">Form 1</option>
+                <option value="form2">Form 2</option>
+                <option value="form3">Form 3</option>
+                <option value="form4">Form 4</option>
+              </select> 
+
+              <label for="uname" style="margin-top: 2%;"><b>Age : </b></label>
+              <input type="text"  class="form-control" name="age" style="width: 90%;" required> 
+
+              <label for="uname" style="margin-top: 2%;"><b>Gender : </b></label>
+              <select name="gender"  class="form-control"  style="width: 90%;" >
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+              </select> 
+
+              <label for="uname" style="margin-top: 2%;"><b>Parent Name : </b></label>
+              <input type="text"  class="form-control"  name="parentname" style="width: 90%;" required> 
+
+              <label for="uname" style="margin-top: 2%;"><b>Parent Phone no : </b></label>
+              <input type="text"  class="form-control" style="width: 90%;" name="parentnumber" required>
+           <font style="color: grey; font-style: italic;"> (This will be used in sending SMS)</font>  
+
+        <p>
+            <input type="submit"  style="margin-top: 1%;" value="Enroll" class="btn btn-info">
+        </p>
+
+    </form>
+
+    
+
+   
+ 
+</div>
+<footer>
+  <p>© 2022 Mohammed Hussein & Adam Rashid & Mohamad Rashid</p>
+</footer>
+</body>
+
+<style>
+  .navbar-nav > li{
+  padding-left: 35px;
+  padding-right: 35px;
+}
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: green;
+    color: #fff;
+}
+</style>
+ 
+</html>

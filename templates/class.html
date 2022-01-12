@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Biometrics</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand" href="#"><h5>School Biometrics System</h5></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" style="margin-left: 2;">
+              <a class="nav-link" href="/dashboard"><i class="fa fa-address-card" aria-hidden="true"></i> Enroll <span class="sr-only">(current)</span></a>
+            </li>
+           
+            <li class="nav-item">
+                <a class="nav-link disabled" href="/classes" style="color: white;"><i class="fa fa-briefcase" aria-hidden="true"></i> Classes</a>
+              </li>
+                          <li class="nav-item">
+              <a class="nav-link disabled" href="#" style="color: white;"><i class="fa fa-briefcase" aria-hidden="true"></i> Staff</a>
+            </li>
+          </ul>
+       
+            <a href="#"  style="text-decoration: none; color: white; "> Welcome ! {{ session.email }}</a>
+            <a href="/logout" ><button style=" padding: 5px; margin-left: 3%;"  class="btn btn-info my-2 my-sm-0"   > Logout</button></a>
+             
+ 
+        </div>
+      </nav>
+
+      <div style="margin-bottom: 50%;">
+<center>
+    <br>
+        <h4 style=" margin-top:1% ;">Class Groups</h4>
+        <a href="/class_single"><button class="btn btn-success btn-sm" style="padding-top: 1%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%; margin-top:1% ; font-weight: 700;">Form 1</button></a> <br>
+        <a href="/class_single1"> <button class="btn btn-success btn-sm"  style="padding-top: 1%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%; margin-top:1% ;font-weight: 700;">Form 2 </button></a> <br>
+        <a href="/class_single2"> <button class="btn btn-success btn-sm"  style="padding-top: 1%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%; margin-top:1% ;font-weight: 700;">Form 3 </button></a> <br>
+        <a href="/class_single3"> <button class="btn btn-success btn-sm"  style="padding-top: 1%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%; margin-top:1% ;font-weight: 700;">Form 4 </button></a>
+        </center>
+          
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+      <footer>
+        <p>© 2022 Mohammed Hussein & Adam Rashid & Mohamad Rashid</p>
+      </footer>
+</body>
+
+<style>
+    .navbar-nav > li{
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: green;
+    color: #fff;
+}
+  </style>
+</html>
