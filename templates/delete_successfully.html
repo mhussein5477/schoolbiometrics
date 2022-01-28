@@ -25,63 +25,29 @@
             <li class="nav-item">
                 <a class="nav-link disabled" href="/classes" style="color: white;"><i class="fa fa-users" aria-hidden="true"></i> Classes</a>
               </li>
-
-            <li class="nav-item">
+                          <li class="nav-item">
               <a class="nav-link disabled" href="#" style="color: white;"><i class="fa fa-briefcase" aria-hidden="true"></i> Staff</a>
             </li>
           </ul>
- 
-            <a href="#"  style="text-decoration: none; color: white; "> Welcome ! {{ session.email }}</a>
-            <a href="/logout" ><button style=" padding: 5px; margin-left: 10%;"  class="btn btn-info my-2 my-sm-0"   > Logout</button></a>
-             
        
+            <a href="#"  style="text-decoration: none; color: white; "> Welcome ! {{ session.email }}</a>
+            <a href="/logout" ><button style=" padding: 5px; margin-left: 3%;"  class="btn btn-info my-2 my-sm-0"   > Logout</button></a>
+             
+ 
         </div>
       </nav>
-
-      <div >
 <center>
-  
-        <table class="table" style="width: 60%; margin-top: 5%; margin-bottom: 50%; float: center;">
-            <thead>
-              <tr>
-                <th>Class</th>
-                <th scope="col">Student Name</th>
-                <th scope="col">Admission Number</th>
-              
-                <th scope="col">View</th>
-                <th>Delete</th>
-
-              </tr>
-            </thead>
-            <tbody>
-                {% for row in classgroup %}
-              <tr>
-                <td>{{row.classgroup }}</td>
-                <td>{{row.studentname }}</td> 
-                <td>{{row.admissionnumber1 }}</td>
-
-                <td> <form action="/studentsingle" method="POST"><button class="btn btn-info" type="submit">View</button> <br>   <input type="text" value="{{row.id}}" name="studentid" style="visibility: hidden ; width: 0%;"></form>  </td> 
-                <td> <form action="/deletestudent" method="POST"><button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete Student ?')" type="submit">Delete</button>   <br> <input type="text" value="{{row.id}}" name="studentid" style="visibility: hidden ; width: 0%;"></form> </td>
-              </tr>
-              {% endfor %}
-              
-            </tbody>
-          </table>
-        </center>
-          
-      </div>
-
-      <script>
-        function ConfirmDelete()
-        {
-          var x = confirm("Are you sure you want to delete?");
-          if (x)
-              return true;
-          else
-            return false;
-        }
-    </script> 
-
+<div style="margin-top: 5%; margin-bottom: 50%;">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+       {% for message in messages %}
+          {{ message }}
+       {% endfor %}
+    {% endif %}
+ {% endwith %}
+</div>
+    
+    </center>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -90,17 +56,18 @@
         <p>© 2022 Mohammed Hussein & Adam Rashid & Mohamad Rashid</p>
       </footer>
 </body>
+
 <style>
-  .navbar-nav > li{
-  padding-left: 35px;
-  padding-right: 35px;
-}
-footer {
+    .navbar-nav > li{
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+  footer {
     display: flex;
     justify-content: center;
     padding: 5px;
     background-color: green;
     color: #fff;
 }
-</style>
+  </style>
 </html>

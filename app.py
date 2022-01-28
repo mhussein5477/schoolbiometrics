@@ -113,8 +113,6 @@ def livecapturingdata():
             cur1 = mysql.connection.cursor()
 
             fingerprintid = attendance.user_id
-        
-           
 
             cur1.execute("INSERT INTO studentattendance (template , time, fingerprintid ) VALUES (%s, %s , %s)",
                         (templateing, saa , fingerprintid  ))
@@ -180,7 +178,24 @@ def studentsingle():
     cur.execute("SELECT * FROM studentattendance WHERE fingerprintid = %s ORDER BY template DESC;  ", (from_db))
     data1 = cur.fetchall()
 
-    return render_template("studentsingle.html" , singlestudent = data , pic = data , studenttemplate=data1   )     
+    return render_template("studentsingle.html" , singlestudent = data , pic = data , studenttemplate=data1   )   
+
+  
+@app.route('/deletestudent', methods=['POST'])
+def deletestudent():
+    
+    studentid = request.form['studentid']
+    print(studentid)
+    cur = mysql.connection.cursor()
+    cur.execute("DELETE FROM students WHERE id = %s ; ", (studentid))
+    mysql.connection.commit()
+
+
+    flash('Student Deleted Successfully')
+    return render_template('delete_successfully.html')
+
+
+
 
 
 @app.route('/class_single')
